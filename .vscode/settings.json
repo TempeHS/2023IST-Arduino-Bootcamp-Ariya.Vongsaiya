@@ -1,5 +1,0 @@
-{
-    "arduino.clearOutputOnBuild": true,
-    "arduino.enableUSBDetection": true,
-    "arduino.useArduinoCli": true
-}
