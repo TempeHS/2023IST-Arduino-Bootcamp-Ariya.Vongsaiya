@@ -13,7 +13,7 @@
     9. I can apply this knowledge to the LED & Buzzer in the sensor kit
 
   Student Notes: 
-
+https://www.tinkercad.com/things/9g4JopBWdEF-03digitalwriteariyavongsaiya/editel 
   Documentation: 
     https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/
     https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/
@@ -23,10 +23,19 @@
 
 */
 
+static unsigned int onBoardLED = 9;
+bool LEDStatus = false; 
+
 void setup() {
+Serial.begin(9600); 
+Serial.println("Serial monitor configured to 9600");
+Serial.println("--------------------------------");
+pinMode(onBoardLED, OUTPUT);
 
 }
 
 void loop() {
-
+ LEDStatus = !LEDStatus;
+ digitalWrite(onBoardLED, LEDStatus);
+ delay(1000);
 }
