@@ -10,14 +10,30 @@
     6. I understand the difference between a global variable and a function variable 
 
   Student Notes: 
-
+float can be seen as 1.1f however it just means float.
+int is integer (any whole number both positive and negative)
+bool- true or false, used in game design often to trigger an event
+float- point floats along a line 
+zero and false is interchangable, so is 1 and true
+unsigned int- no negative numbers
   Documentation: 
     https://www.arduino.cc/reference/en/#variables
     https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/
 */
 
-void setup() {
+int myInt = 5;
+String myString ="5";
+bool myBool = true;
+float myFloat = 1.1;
 
+
+void setup() {
+Serial.begin(9600);
+Serial.println("Serial Monitor is configured to 9600");
+Serial.println("-----------------------------------");
+Serial.print("Data stored: ");
+myString = String(myInt);
+Serial.println(myString);
 }
 
 void loop() {
