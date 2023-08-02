@@ -23,19 +23,23 @@ https://www.tinkercad.com/things/9g4JopBWdEF-03digitalwriteariyavongsaiya/editel
 
 */
 
-static unsigned int onBoardLED = 9;
-bool LEDStatus = false; 
+static unsigned int myLED = 4;
+static unsigned int myBuzzer = 3; 
+
 
 void setup() {
 Serial.begin(9600); 
 Serial.println("Serial monitor configured to 9600");
 Serial.println("--------------------------------");
-pinMode(onBoardLED, OUTPUT);
-
+pinMode(myLED, OUTPUT);
+pinMode(myBuzzer, OUTPUT);
 }
 
 void loop() {
- LEDStatus = !LEDStatus;
- digitalWrite(onBoardLED, LEDStatus);
- delay(1000);
+ digitalWrite(myLED, HIGH);
+ tone(myBuzzer, 128);
+ delay(500);
+digitalWrite(myLED, LOW);
+noTone(myBuzzer);
+ delay(5000);
 }
