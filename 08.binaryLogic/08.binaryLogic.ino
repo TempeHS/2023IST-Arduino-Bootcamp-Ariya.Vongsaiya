@@ -30,11 +30,18 @@
   Schematic: 
     
 */
+static unsigned int myLED = 13;
 
 void setup() {
-
+Serial.begin(9600);
+Serial.println("Serial monitor configured to 9600");
+pinMode(myLED, OUTPUT);
 }
 
 void loop() {
-
+    int x = 0;
+    while (x <= 200) {
+        x = x + 1;
+        delay(100);
+}
 }
