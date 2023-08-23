@@ -19,10 +19,42 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/11.ultrasonicSensor/Bootcamp-ultrasonicSensor.png
 */
 
+#include <Servo.h>
+#include "Ultrasonic.h"
+
+//create a servo object
+Servo myServo;
+
+//create ultrasonic sensor and attach to pin 2
+Ultrasonic myUS(2);
+
+//variable to store distance
+unsigned int distance;
+
+//Pin servo is attached to 
+unsigned static int myServoPin = 8;
+
 void setup() {
+//Setup and debug serial monitor
+Serial.begin(9600);
+Serial.println("Serial Monitor configured to 9600");
+Serial.println("----------------------------");
 
+//Configure myServo to the pin
+myServo.attach(myServoPin);
+myServo.write(0);
+delay(250);
 }
 
+// The loop function runs over and over again forever
 void loop() {
+  distance = myUS.MeasureInCentimeters();
+  Serial.println(distance);
 
-}
+//slowly sweep the servo 180 degrees
+if (distance < 30) {
+  myServo.write(0);
+} else {
+  myServo.write(180);
+} 
+  }
